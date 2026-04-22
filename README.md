@@ -1,1 +1,1 @@
-# dualearn
+# dualita
