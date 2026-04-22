@@ -140,59 +140,55 @@ def build_home_screen(page, on_start_lesson, on_toggle_lang):
 
         return path_controls
 
-    # ─── Hero banner: Profile + Logos ────────────────────
-    hero_banner = ft.Container(
+    # Intro Greeting & Motivation
+    intro_banner = ft.Container(
         content=ft.Column([
             ft.Row([
-                # Profile photo
-                ft.Container(
-                    content=ft.Image(
-                        src="/profile_photo.png",
-                        width=52, height=52,
-                        fit=ft.ImageFit.COVER,
-                    ),
-                    width=56, height=56,
-                    border_radius=RADIUS_FULL,
-                    bgcolor="#FFFFFF",
-                    border=ft.border.all(2, ACCENT_ORANGE),
-                    clip_behavior=ft.ClipBehavior.ANTI_ALIAS,
-                    alignment=ft.alignment.center,
-                ),
-                # Instructor info
+                ft.Image(src="/mascot.png", width=70, height=70, fit=ft.ImageFit.CONTAIN),
                 ft.Column([
-                    ft.Text(t("trainer_role"), size=11, color=TEXT_SECONDARY, weight=ft.FontWeight.W_300),
-                    ft.Text(get_state()["name"], size=15, weight=ft.FontWeight.BOLD, color=TEXT_PRIMARY),
-                ], spacing=1, expand=True),
-            ], spacing=12, vertical_alignment=ft.CrossAxisAlignment.CENTER),
-            
-            ft.Container(height=8),
-            
+                    ft.Text("¡Hola, Choco-Maestro!", size=14, color=ACCENT_ORANGE, weight=ft.FontWeight.W_600),
+                    ft.Text("¡Bienvenido a Dualita!", size=28, weight=ft.FontWeight.W_900, color=TEXT_PRIMARY, font_family="Bodoni", italic=True),
+                ], spacing=0),
+            ], vertical_alignment=ft.CrossAxisAlignment.CENTER, spacing=16),
+            ft.Text(
+                "Estás en el camino hacia la excelencia. Cada lección es un paso más para convertirte en un experto de la chocolatería de autor.",
+                size=14, color=TEXT_SECONDARY, italic=True
+            ),
+            ft.Container(height=4),
+            # Instructor info small card
             ft.Container(
                 content=ft.Row([
-                    ft.Image(src="/swisscontact_logo.svg", width=120, height=32, fit=ft.ImageFit.CONTAIN),
-                ], spacing=0, alignment=ft.MainAxisAlignment.CENTER, vertical_alignment=ft.CrossAxisAlignment.CENTER),
-                padding=ft.padding.symmetric(horizontal=12, vertical=12),
+                    ft.Container(
+                        content=ft.Image(src="/profile_photo.png", width=40, height=40, fit=ft.ImageFit.COVER),
+                        width=44, height=44, border_radius=RADIUS_FULL,
+                        bgcolor="#FFFFFF", border=ft.border.all(1, ACCENT_ORANGE),
+                        clip_behavior=ft.ClipBehavior.ANTI_ALIAS, alignment=ft.alignment.center,
+                    ),
+                    ft.Column([
+                        ft.Text(t("trainer_role"), size=10, color=TEXT_SECONDARY, weight=ft.FontWeight.W_300),
+                        ft.Text(get_state()["name"], size=13, weight=ft.FontWeight.BOLD, color=TEXT_PRIMARY),
+                    ], spacing=0),
+                    ft.Container(expand=True),
+                    ft.Image(src="/swisscontact_logo.svg", width=80, height=20, fit=ft.ImageFit.CONTAIN),
+                ], spacing=12, vertical_alignment=ft.CrossAxisAlignment.CENTER),
+                padding=ft.padding.all(10),
                 border_radius=RADIUS_MD,
-                bgcolor="#FFFFFF",
+                bgcolor=BG_ELEVATED,
                 border=ft.border.all(1, BORDER_SUBTLE),
-                margin=ft.margin.symmetric(horizontal=40),
             ),
-        ], spacing=0),
-        padding=ft.padding.symmetric(horizontal=16, vertical=12),
-        border_radius=RADIUS_MD,
+        ], spacing=12),
+        padding=ft.padding.all(20),
+        border_radius=RADIUS_LG,
         bgcolor=BG_CARD,
         border=ft.border.all(1, BORDER_SUBTLE),
-        margin=ft.margin.only(bottom=8),
+        margin=ft.margin.only(bottom=16),
+        shadow=SHADOW_MD,
     )
 
     # Header
     header = ft.Container(
         content=ft.Column([
             ft.Row([
-                ft.Row([
-                    ft.Image(src="/mascot.png", width=28, height=28, fit=ft.ImageFit.CONTAIN),
-                    ft.Text("Dualita", size=22, weight=ft.FontWeight.W_900, color=TEXT_PRIMARY, font_family="Bodoni", italic=True),
-                ], spacing=8, vertical_alignment=ft.CrossAxisAlignment.CENTER),
                 ft.Container(expand=True),
                 ft.IconButton(
                     icon=ft.Icons.LANGUAGE,
@@ -201,10 +197,8 @@ def build_home_screen(page, on_start_lesson, on_toggle_lang):
                     on_click=on_toggle_lang,
                 ),
                 build_streak_counter(),
-            ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
-            ft.Text(t("app_subtitle"), size=13, color=TEXT_SECONDARY),
-            ft.Container(height=8),
-            hero_banner,
+            ], alignment=ft.MainAxisAlignment.END),
+            intro_banner,
             build_xp_bar(),
         ]),
         padding=PAD_SCREEN,
