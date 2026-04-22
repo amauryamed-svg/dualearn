@@ -15,7 +15,7 @@ from screens.leaderboard import build_leaderboard_screen
 
 
 def main(page: ft.Page):
-    page.title = "DuaLern — Curso de Chocolatería de Autor"
+    page.title = "DuaLearn — Curso de Chocolatería de Autor"
     page.bgcolor = BG_PRIMARY
     page.theme_mode = ft.ThemeMode.DARK
     page.fonts = {

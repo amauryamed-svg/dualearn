@@ -13,7 +13,7 @@ STRINGS = {
     "nav_profile":      {"es": "Perfil",      "en": "Profile"},
 
     # ─── Home ────────────────────────────────────────────────────
-    "app_title":        {"es": "🍫 Curso de Chocolatería de Autor", "en": "🍫 Artisan Chocolate Course"},
+    "app_title":        {"es": "DuaLearn — Chocolatería de Autor", "en": "DuaLearn — Artisan Chocolate"},
     "app_subtitle":     {"es": "Formación Dual en Chocolate Artesanal", "en": "Dual Training in Artisan Chocolate"},
     "trainer_role":     {"es": "Formador Senior Cacaotier", "en": "Senior Cacaotier Trainer"},
     "section":          {"es": "Sección",     "en": "Section"},

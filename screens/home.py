@@ -108,22 +108,18 @@ def build_home_screen(page, on_start_lesson, on_toggle_lang):
             
             # Logos Row
             ft.Container(
-                content=ft.Column([
-                    ft.Row([
-                        ft.Image(src="/swisscontact_logo.png", width=90, height=24, fit=ft.ImageFit.CONTAIN),
-                        ft.Container(width=1, height=16, bgcolor=BORDER_SUBTLE),
-                        ft.Image(src="/caua_logo.png", width=50, height=24, fit=ft.ImageFit.CONTAIN),
-                    ], spacing=12, alignment=ft.MainAxisAlignment.CENTER, vertical_alignment=ft.CrossAxisAlignment.CENTER),
-                    ft.Container(height=4),
-                    ft.Row([
-                        ft.Image(src="/sec_logo.png", width=120, height=32, fit=ft.ImageFit.CONTAIN),
-                        ft.Container(width=16),
-                        ft.Image(src="/bogota_logo.png", width=120, height=32, fit=ft.ImageFit.CONTAIN),
-                    ], alignment=ft.MainAxisAlignment.CENTER, vertical_alignment=ft.CrossAxisAlignment.CENTER),
-                ], spacing=0, alignment=ft.MainAxisAlignment.CENTER),
-                padding=ft.padding.symmetric(horizontal=12, vertical=8),
+                content=ft.Row([
+                    ft.Image(src="/swisscontact_logo.png", width=70, height=20, fit=ft.ImageFit.CONTAIN),
+                    ft.Container(width=1, height=14, bgcolor=BORDER_SUBTLE),
+                    ft.Image(src="/sec_logo.png", width=80, height=24, fit=ft.ImageFit.CONTAIN),
+                    ft.Container(width=1, height=14, bgcolor=BORDER_SUBTLE),
+                    ft.Image(src="/bogota_logo.png", width=80, height=24, fit=ft.ImageFit.CONTAIN),
+                    ft.Container(width=1, height=14, bgcolor=BORDER_SUBTLE),
+                    ft.Image(src="/caua_logo.png", width=40, height=20, fit=ft.ImageFit.CONTAIN),
+                ], spacing=12, alignment=ft.MainAxisAlignment.CENTER, vertical_alignment=ft.CrossAxisAlignment.CENTER),
+                padding=ft.padding.symmetric(horizontal=12, vertical=10),
                 border_radius=RADIUS_MD,
-                bgcolor="#FFFFFF", # White background to make transparent dark logos pop
+                bgcolor="#FFFFFF", # White background for logos
                 border=ft.border.all(1, BORDER_SUBTLE),
             ),
         ], spacing=0),
@@ -138,7 +134,7 @@ def build_home_screen(page, on_start_lesson, on_toggle_lang):
     header = ft.Container(
         content=ft.Column([
             ft.Row([
-                ft.Text(t("app_title"), size=20, weight=ft.FontWeight.W_900, color=TEXT_PRIMARY, font_family="Bodoni", italic=True),
+                ft.Text("DuaLearn", size=20, weight=ft.FontWeight.W_900, color=TEXT_PRIMARY, font_family="Bodoni", italic=True),
                 ft.Container(expand=True),
                 ft.IconButton(
                     icon=ft.Icons.LANGUAGE,
