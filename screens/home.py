@@ -149,7 +149,7 @@ def build_home_screen(page, on_start_lesson, on_toggle_lang):
             ft.Row([
                 ft.Image(src="/mascot.png", width=70, height=70, fit=ft.ImageFit.CONTAIN),
                 ft.Column([
-                    ft.Text("¡Hola, Choco-Maestro!", size=14, color=ACCENT_ORANGE, weight=ft.FontWeight.W_600),
+                    ft.Text("¡Hola, Chocolover!", size=14, color=ACCENT_ORANGE, weight=ft.FontWeight.W_600),
                     ft.Text("¡Bienvenido a Dualita!", size=28, weight=ft.FontWeight.W_900, color=TEXT_PRIMARY, font_family="Bodoni", italic=True),
                 ], spacing=0),
             ], vertical_alignment=ft.CrossAxisAlignment.CENTER, spacing=16),
