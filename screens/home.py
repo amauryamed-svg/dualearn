@@ -134,7 +134,10 @@ def build_home_screen(page, on_start_lesson, on_toggle_lang):
     header = ft.Container(
         content=ft.Column([
             ft.Row([
-                ft.Text("DuaLearn", size=20, weight=ft.FontWeight.W_900, color=TEXT_PRIMARY, font_family="Bodoni", italic=True),
+                ft.Row([
+                    ft.Image(src="/mascot.png", width=28, height=28, fit=ft.ImageFit.CONTAIN),
+                    ft.Text("DuaLearn", size=22, weight=ft.FontWeight.W_900, color=TEXT_PRIMARY, font_family="Bodoni", italic=True),
+                ], spacing=8, vertical_alignment=ft.CrossAxisAlignment.CENTER),
                 ft.Container(expand=True),
                 ft.IconButton(
                     icon=ft.Icons.LANGUAGE,
