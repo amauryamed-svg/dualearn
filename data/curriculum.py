@@ -7,6 +7,13 @@ SECTIONS = [
     {
         "title": "Cata Sensorial y Perfilación",
         "emoji": "👅",
+        "mooc": {
+            "intro": "Domina el arte de evaluar el chocolate como un experto. En este módulo, aprenderás a decodificar los sabores del cacao desde el origen hasta el paladar.",
+            "schedule": [
+                {"period": "Mes 1: Fundamentos", "morning": "08:00 - 12:00 (Teoría de Sentidos)", "afternoon": "14:00 - 18:00 (Práctica de Cata)"},
+                {"period": "Mes 2: Perfilación", "morning": "08:00 - 12:00 (Rueda de Sabores)", "afternoon": "14:00 - 18:00 (Identificación de Origen)"}
+            ]
+        },
         "lessons": [
             {
                 "title": "Introducción a los Sentidos",
@@ -37,6 +44,13 @@ SECTIONS = [
     {
         "title": "Formulación y Porcentajes",
         "emoji": "📊",
+        "mooc": {
+            "intro": "La ciencia exacta detrás de la barra perfecta. Aprende a calcular porcentajes de cacao, manteca y azúcar para crear fórmulas de autor equilibradas.",
+            "schedule": [
+                {"period": "Mes 1: Matemáticas", "morning": "08:00 - 12:00 (Cálculo de Fórmulas)", "afternoon": "14:00 - 18:00 (Manejo de Porcentajes)"},
+                {"period": "Mes 2: Aplicación", "morning": "08:00 - 12:00 (Formulación de Blancos)", "afternoon": "14:00 - 18:00 (Formulación de Oscuros)"}
+            ]
+        },
         "lessons": [
             {
                 "title": "Matemáticas del Chocolate",
@@ -67,6 +81,13 @@ SECTIONS = [
     {
         "title": "Bombonería y Rellenos",
         "emoji": "🍬",
+        "mooc": {
+            "intro": "El arte del detalle. Descubre cómo crear casquillos perfectos, rellenos estables y emulsiones (ganaches) que sorprendan por su textura y brillo.",
+            "schedule": [
+                {"period": "Mes 1: Técnica de Casquillos", "morning": "08:00 - 12:00 (Encamisado de Moldes)", "afternoon": "14:00 - 18:00 (Cristalización Controlada)"},
+                {"period": "Mes 2: Rellenos Avanzados", "morning": "08:00 - 12:00 (Emulsiones y Ganaches)", "afternoon": "14:00 - 18:00 (Pralinés y Giandujas)"}
+            ]
+        },
         "lessons": [
             {
                 "title": "Moldes y Casquillos",
@@ -97,6 +118,13 @@ SECTIONS = [
     {
         "title": "Proyecto: Chocolate Dubai",
         "emoji": "🌟",
+        "mooc": {
+            "intro": "Lleva las tendencias a la realidad artesanal. Crea la famosa barra de pistacho y kataifi usando técnicas de autor para un resultado premium y viral.",
+            "schedule": [
+                {"period": "Mes 1: Preparación", "morning": "08:00 - 12:00 (Tratamiento de Kataifi)", "afternoon": "14:00 - 18:00 (Elaboración de Pasta Pistacho)"},
+                {"period": "Mes 2: Montaje", "morning": "08:00 - 12:00 (Vaciado de Barras Chunky)", "afternoon": "14:00 - 18:00 (Marketing y ASMR)"}
+            ]
+        },
         "lessons": [
             {
                 "title": "Análisis de Tendencia",
@@ -127,6 +155,13 @@ SECTIONS = [
     {
         "title": "Migao Evolucionado",
         "emoji": "☕",
+        "mooc": {
+            "intro": "Tradición y vanguardia en una taza. Aprende a formular chocolates de taza premium y a evolucionar el concepto cultural del 'Migao' con técnicas modernas.",
+            "schedule": [
+                {"period": "Mes 1: El Origen de la Taza", "morning": "08:00 - 12:00 (Historia y Especias)", "afternoon": "14:00 - 18:00 (Molienda y Texturas)"},
+                {"period": "Mes 2: Evolución Culinaria", "morning": "08:00 - 12:00 (Maridaje con Quesos)", "afternoon": "14:00 - 18:00 (Espumas y Aireados)"}
+            ]
+        },
         "lessons": [
             {
                 "title": "Historia y Cultura",
@@ -157,6 +192,13 @@ SECTIONS = [
     {
         "title": "Empaques Sostenibles",
         "emoji": "📦",
+        "mooc": {
+            "intro": "El empaque es la cara de tu marca. Aprende a seleccionar materiales biodegradables que protejan tu chocolate y cuenten la historia de sostenibilidad de tu emprendimiento.",
+            "schedule": [
+                {"period": "Mes 1: Materiales", "morning": "08:00 - 12:00 (Fibras Naturales)", "afternoon": "14:00 - 18:00 (Certificaciones FSC)"},
+                {"period": "Mes 2: Diseño de Marca", "morning": "08:00 - 12:00 (Estructura Isotérmica)", "afternoon": "14:00 - 18:00 (Etiquetado Nutricional)"}
+            ]
+        },
         "lessons": [
             {
                 "title": "Materiales Biodegradables",
@@ -179,7 +221,7 @@ SECTIONS = [
                 "questions": [
                     {"type": "choice", "q": "¿Qué se entiende por 'Clean Label' (Etiqueta Limpia)?", "options": ["Una etiqueta blanca", "Lista de ingredientes corta, natural y fácil de entender", "Etiqueta sin calorías", "Etiqueta lavable"], "answer": 1, "explanation": "Un producto clean label evita aditivos artificiales y usa nombres de ingredientes reales (ej: Cacao, Azúcar, Manteca de cacao)."},
                     {"type": "tf", "q": "Tinta a base de soya o vegetales es preferible para empaques sostenibles.", "answer": True, "explanation": "Las tintas de petróleo dificultan el reciclaje/compostaje. Tintas vegetales son el estándar en empaques eco-amigables."},
-                    {"type": "choice", "q": "¿Qué información añade más valor en un chocolate de autor?", "options": ["Código de barras gigante", "Fecha de caducidad en el frente", "Historia del origen del cacao, productor y notas de cata", "Instrucciones de apertura"], "answer": 2, "explanation": "El storytelling del origen conecta al consumidor con el producto, justificando el valor artesanal del chocolate."},
+                    {"type": "choice", "q": "¿Qué información añade más valor en un chocolate de autor?", "options": ["Código de barras gigante", "Fecha de caducidad en el frente", "Historia del origen del cacao, productor y notas de cata", "Historia de marca y sostenibilidad"], "answer": 2, "explanation": "El storytelling del origen conecta al consumidor con el producto, justificando el valor artesanal del chocolate."},
                 ]
             },
         ]

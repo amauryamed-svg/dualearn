@@ -9,6 +9,60 @@ from state import get_state, is_lesson_unlocked, is_lesson_completed
 from i18n import t
 
 
+def show_mooc_info(page, section):
+    mooc = section.get("mooc", {})
+    
+    def close_bs(e):
+        bs.open = False
+        page.update()
+
+    schedule_rows = []
+    for item in mooc.get("schedule", []):
+        schedule_rows.append(
+            ft.Container(
+                content=ft.Column([
+                    ft.Text(item["period"], weight=ft.FontWeight.BOLD, color=ACCENT_ORANGE),
+                    ft.Row([
+                        ft.Icon(ft.Icons.WB_SUN_OUTLINE, size=16, color=TEXT_SECONDARY),
+                        ft.Text(item["morning"], size=13, color=TEXT_PRIMARY),
+                    ], spacing=8),
+                    ft.Row([
+                        ft.Icon(ft.Icons.NIGHTLIGHT_ROUND, size=16, color=TEXT_SECONDARY),
+                        ft.Text(item["afternoon"], size=13, color=TEXT_PRIMARY),
+                    ], spacing=8),
+                ], spacing=4),
+                padding=12,
+                border_radius=8,
+                bgcolor=BG_ELEVATED,
+                border=ft.border.all(1, BORDER_SUBTLE),
+            )
+        )
+
+    bs = ft.BottomSheet(
+        ft.Container(
+            content=ft.Column([
+                ft.Row([
+                    ft.Text(f"{section['emoji']} {section['title']}", size=20, weight=ft.FontWeight.BOLD),
+                    ft.IconButton(ft.Icons.CLOSE, on_click=close_bs),
+                ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
+                ft.Divider(color=BORDER_SUBTLE),
+                ft.Text("MICRO MOOC INTRODUCCIÓN", size=12, weight=ft.FontWeight.W_900, color=ACCENT_ORANGE),
+                ft.Text(mooc.get("intro", ""), size=15, color=TEXT_PRIMARY),
+                ft.Container(height=16),
+                ft.Text("CRONOGRAMA DE CLASE", size=12, weight=ft.FontWeight.W_900, color=ACCENT_ORANGE),
+                ft.Column(schedule_rows, spacing=8, scroll=ft.ScrollMode.AUTO),
+                ft.Container(height=20),
+            ], tight=True, spacing=12),
+            padding=24,
+            bgcolor=BG_CARD,
+            border_radius=ft.border_radius.only(top_left=24, top_right=24),
+        ),
+        open=True,
+    )
+    page.overlay.append(bs)
+    page.update()
+
+
 def build_home_screen(page, on_start_lesson, on_toggle_lang):
     """Build the home screen with learning path."""
 
@@ -25,8 +79,14 @@ def build_home_screen(page, on_start_lesson, on_toggle_lang):
                         ft.Column([
                             ft.Text(f"{t('section')} {sec_idx + 1}", size=11, color=TEXT_SECONDARY, weight=ft.FontWeight.W_300),
                             ft.Text(section["title"], size=16, weight=ft.FontWeight.BOLD, color=ACCENT_ORANGE),
-                        ], spacing=0),
-                    ], spacing=12),
+                        ], spacing=0, expand=True),
+                        ft.IconButton(
+                            icon=ft.Icons.INFO_OUTLINE,
+                            icon_color=ACCENT_ORANGE,
+                            tooltip="Micro MOOC Info",
+                            on_click=lambda e, s=section: show_mooc_info(page, s),
+                        ),
+                    ], spacing=12, vertical_alignment=ft.CrossAxisAlignment.CENTER),
                     padding=ft.padding.symmetric(horizontal=16, vertical=10),
                     margin=ft.margin.only(top=16 if sec_idx > 0 else 0, bottom=4),
                     border_radius=RADIUS_MD,
@@ -110,11 +170,11 @@ def build_home_screen(page, on_start_lesson, on_toggle_lang):
             # Logos Row
             ft.Container(
                 content=ft.Row([
-                    ft.Image(src="/swisscontact_logo.png", width=90, height=24, fit=ft.ImageFit.CONTAIN),
+                    ft.Image(src="/swisscontact_logo.svg", width=90, height=24, fit=ft.ImageFit.CONTAIN),
                     ft.Container(width=1, height=16, bgcolor=BORDER_SUBTLE),
-                    ft.Image(src="/sec_logo.png", width=120, height=32, fit=ft.ImageFit.CONTAIN),
+                    ft.Image(src="/bogota_logo.svg", width=120, height=32, fit=ft.ImageFit.CONTAIN),
                     ft.Container(width=1, height=16, bgcolor=BORDER_SUBTLE),
-                    ft.Image(src="/bogota_logo.png", width=120, height=32, fit=ft.ImageFit.CONTAIN),
+                    ft.Image(src="/bogota_logo.svg", width=120, height=32, fit=ft.ImageFit.CONTAIN),
                 ], spacing=20, alignment=ft.MainAxisAlignment.CENTER, vertical_alignment=ft.CrossAxisAlignment.CENTER),
                 padding=ft.padding.symmetric(horizontal=12, vertical=12),
                 border_radius=RADIUS_MD,
