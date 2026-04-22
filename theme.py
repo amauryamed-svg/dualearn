@@ -1,5 +1,5 @@
 """
-🍫 DuoLearn Theme — Chocolatería de Autor
+🍫 Dualita Theme — Chocolatería de Autor
 Chocolate-inspired dark mode design system.
 """
 
