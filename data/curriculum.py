@@ -1,5 +1,5 @@
 """
-🍫 DuaLearn Curriculum — Formación Dual Chocolatería de Autor
+🍫 Dualita Curriculum — Formación Dual Chocolatería de Autor
 Modelo de 18 sesiones sincrónicas y asincrónicas.
 """
 
