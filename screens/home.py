@@ -12,8 +12,8 @@ from i18n import t
 def show_mooc_info(page, section):
     mooc = section.get("mooc", {})
     
-    def close_bs(e):
-        bs.open = False
+    def close_dlg(e):
+        dlg.open = False
         page.update()
 
     schedule_rows = []
@@ -21,45 +21,47 @@ def show_mooc_info(page, section):
         schedule_rows.append(
             ft.Container(
                 content=ft.Column([
-                    ft.Text(item["period"], weight=ft.FontWeight.BOLD, color=ACCENT_ORANGE),
+                    ft.Text(item["period"], weight=ft.FontWeight.BOLD, color=ACCENT_ORANGE, size=14),
                     ft.Row([
-                        ft.Icon(ft.Icons.WB_SUN_OUTLINE, size=16, color=TEXT_SECONDARY),
-                        ft.Text(item["morning"], size=13, color=TEXT_PRIMARY),
+                        ft.Icon(ft.Icons.WB_SUN_OUTLINE, size=14, color=TEXT_SECONDARY),
+                        ft.Text(item["morning"], size=12, color=TEXT_PRIMARY),
                     ], spacing=8),
                     ft.Row([
-                        ft.Icon(ft.Icons.NIGHTLIGHT_ROUND, size=16, color=TEXT_SECONDARY),
-                        ft.Text(item["afternoon"], size=13, color=TEXT_PRIMARY),
+                        ft.Icon(ft.Icons.NIGHTLIGHT_ROUND, size=14, color=TEXT_SECONDARY),
+                        ft.Text(item["afternoon"], size=12, color=TEXT_PRIMARY),
                     ], spacing=8),
-                ], spacing=4),
-                padding=12,
+                ], spacing=2),
+                padding=10,
                 border_radius=8,
                 bgcolor=BG_ELEVATED,
                 border=ft.border.all(1, BORDER_SUBTLE),
             )
         )
 
-    bs = ft.BottomSheet(
-        ft.Container(
+    dlg = ft.AlertDialog(
+        modal=False,
+        title=ft.Row([
+            ft.Text(f"{section['emoji']} {section['title']}", size=18, weight=ft.FontWeight.BOLD),
+            ft.IconButton(ft.Icons.CLOSE, on_click=close_dlg),
+        ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
+        content=ft.Container(
             content=ft.Column([
-                ft.Row([
-                    ft.Text(f"{section['emoji']} {section['title']}", size=20, weight=ft.FontWeight.BOLD),
-                    ft.IconButton(ft.Icons.CLOSE, on_click=close_bs),
-                ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
                 ft.Divider(color=BORDER_SUBTLE),
-                ft.Text("MICRO MOOC INTRODUCCIÓN", size=12, weight=ft.FontWeight.W_900, color=ACCENT_ORANGE),
-                ft.Text(mooc.get("intro", ""), size=15, color=TEXT_PRIMARY),
-                ft.Container(height=16),
-                ft.Text("CRONOGRAMA DE CLASE", size=12, weight=ft.FontWeight.W_900, color=ACCENT_ORANGE),
+                ft.Text("MICRO MOOC INTRODUCCIÓN", size=11, weight=ft.FontWeight.W_900, color=ACCENT_ORANGE),
+                ft.Text(mooc.get("intro", ""), size=14, color=TEXT_PRIMARY),
+                ft.Container(height=10),
+                ft.Text("CRONOGRAMA DE CLASE", size=11, weight=ft.FontWeight.W_900, color=ACCENT_ORANGE),
                 ft.Column(schedule_rows, spacing=8, scroll=ft.ScrollMode.AUTO),
-                ft.Container(height=20),
-            ], tight=True, spacing=12),
-            padding=24,
-            bgcolor=BG_CARD,
-            border_radius=ft.border_radius.only(top_left=24, top_right=24),
+            ], tight=True, spacing=10),
+            width=400,
+            padding=ft.padding.only(bottom=20),
         ),
-        open=True,
+        bgcolor=BG_CARD,
+        shape=ft.RoundedRectangleBorder(radius=RADIUS_LG),
     )
-    page.overlay.append(bs)
+    
+    page.dialog = dlg
+    dlg.open = True
     page.update()
 
 
@@ -92,6 +94,7 @@ def build_home_screen(page, on_start_lesson, on_toggle_lang):
                     border_radius=RADIUS_MD,
                     bgcolor=BG_SECTION,
                     border=ft.border.all(1, BORDER_SUBTLE),
+                    on_click=lambda e, s=section: show_mooc_info(page, s),
                 )
             )
 
