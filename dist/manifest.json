@@ -1,11 +1,11 @@
 {
-  "name": "DuoLearn",
-  "short_name": "DuoLearn",
+  "name": "Dualita",
+  "short_name": "Dualita",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#FFFFFF",
   "theme_color": "#0175C2",
-  "description": "Flet - the fastest way to build Flutter apps in Python",
+  "description": "Dualita \u2014 Formaci\u00f3n Dual en Chocolater\u00eda de Autor",
   "orientation": "natural",
   "prefer_related_applications": false,
   "icons": [
